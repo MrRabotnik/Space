@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,67 @@
     <title>Space</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
     <canvas id="space"></canvas>
 
-    <script src="main.js"></script>
+    <div id="settings">
+        <img src="./images/filter.webp" alt="">
+    </div>
+
+    <div id="settingsPopUp">
+        <div id="closePopUpContainer">
+            <div id="closePopUpIcon">&times;</div>
+        </div>
+        <div id="addLayerContainer">
+            <div id="addLayerIcon">Add Layer</div>
+        </div>
+        <div id="settingsPopUpContentContainer"></div>
+    </div>
+
+    <div id="outerPopUp">
+        <div id="addLayerPopUp">
+            <div id="closeLayerPopUpContainer">
+                <div id="closeLayerPopUpIcon">&times;</div>
+            </div>
+            <div id="layerPopUpContentContainer">
+                <div class="customizeDiv">
+                    Stars count:
+                    <input id="starsCountSetting" type="number" min="1" max="100" value="1" placeholder="1-100">
+                </div>
+                <div class="customizeDiv">
+                    Min radius:
+                    <input id="starMinRadiusSetting" type="number" min="0.1" max="500" value="99" placeholder="0.1-500">
+                </div>
+                <div class="customizeDiv">
+                    Max radius:
+                    <input id="starMaxRadiusSetting" type="number" min="0.1" max="500" value="100" placeholder="0.1-500">
+                </div>
+                <div class="customizeDiv">
+                    Moving speed:
+                    <input id="starSpeedSetting" type="number" min="0.1" max="100" value="0.1" placeholder="0.1-100">
+                </div>
+                <div class="customizeDiv">
+                    Stars color:
+                    <input id="starColorSetting" type="color" value="#ffff00">
+                </div>
+                <div class="customizeDiv">
+                    Blur:
+                    <input id="starBlurSetting" type="number" min="1" m ax="100" value="30" placeholder="1-100">
+                </div>
+                <div class="customizeDiv">
+                    Shadow color:
+                    <input id="starShadowColorSetting" type="color" value="#ffffff">
+                </div>
+            </div>
+            <div id="saveLayerContainer">
+                <div id="saveLayerBtn">Add</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/starAnimation.js"></script>
+    <script src="./js/settings.js"></script>
 </body>
+
 </html>
