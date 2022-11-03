@@ -52,6 +52,19 @@ function saveAddLayer() {
     drawSpace()
 }
 
+function editLayerInfo(val, property, id) {
+    console.log(val, property, id)
+    layers = layers.map(layer => {
+        if (layer.id === id) {
+            console.log(layer)
+            layer[property] = val
+            return layer
+        }
+    })
+    createStarLayers()
+    drawSpace()
+}
+
 function removeLayer(id) {
     document.getElementById(id).remove() // removing layer with "id" from layer settings
     layers = layers.filter(item => {
@@ -66,13 +79,13 @@ function fillLayersSetting() {
         const layerDiv =
             `<div class="layerSetting" id="${layer.id}">
                 <div class="layerInfoContainer">
-                    <div class="layerSingleInfoContainer">Stars count <input type="number" value="${layer.starsCount}"></div>
-                    <div class="layerSingleInfoContainer">Stars speed <input type="number" value="${layer.speed}"></div>
-                    <div class="layerSingleInfoContainer">Min radius <input type="number" value="${layer.minRadius}"></div>
-                    <div class="layerSingleInfoContainer">Max radius <input type="number" value="${layer.maxRadius}"></div>
-                    <div class="layerSingleInfoContainer">Star color <input type="color" value="${layer.color}"></div>
-                    <div class="layerSingleInfoContainer">Blur <input type="number" value="${layer.blur}"></div>
-                    <div class="layerSingleInfoContainer">Shadow color <input type="color" value="${layer.shadowColor}"></div>
+                    <div class="layerSingleInfoContainer">Stars count <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="starsCount" type="number" value="${layer.starsCount}"></div>
+                    <div class="layerSingleInfoContainer">Stars speed <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="minRadius" type="number" value="${layer.speed}"></div>
+                    <div class="layerSingleInfoContainer">Min radius <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="maxRadius" type="number" value="${layer.minRadius}"></div>
+                    <div class="layerSingleInfoContainer">Max radius <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="speed" type="number" value="${layer.maxRadius}"></div>
+                    <div class="layerSingleInfoContainer">Star color <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="color" type="color" value="${layer.color}"></div>
+                    <div class="layerSingleInfoContainer">Blur <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="blur" type="number" value="${layer.blur}"></div>
+                    <div class="layerSingleInfoContainer">Shadow color <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="shadowColor" type="color" value="${layer.shadowColor}"></div>
                 </div>
                 <div class="removeLayer" aria-id="${layer.id}">
                     <img src="../images/remove.ico">
@@ -84,9 +97,14 @@ function fillLayersSetting() {
 
 function addEventListeners() {
     const layersIds = document.getElementsByClassName("removeLayer")
+    const layerSingleInfo = document.getElementsByClassName("layerSingleInfoInput")
     for (let i = 0; i < layersIds.length; i++) {
         const layer = layersIds[i];
         layer.addEventListener('click', () => removeLayer(layer.getAttribute("aria-id")))
+    }
+    for (let i = 0; i < layerSingleInfo.length; i++) {
+        const layerInfo = layerSingleInfo[i];
+        layerInfo.addEventListener('change', () => editLayerInfo(layerInfo.value, layerInfo.getAttribute("aria-property"), layerInfo.getAttribute("aria-id")))
     }
     layerId++
 }

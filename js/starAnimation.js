@@ -20,66 +20,66 @@ let layers = [
         "shadowColor": "#ffff00",
         "id": "layer_0"
     },
-    {
-        "starsCount": 5,
-        "minRadius": 0.5,
-        "maxRadius": 1,
-        "speed": 0.7,
-        "color": "#555555",
-        "blur": 5,
-        "shadowColor": "#0000ff",
-        "id": "layer_1"
-    },
-    {
-        "starsCount": 6,
-        "minRadius": 1,
-        "maxRadius": 3,
-        "speed": 1,
-        "color": "#555555",
-        "blur": 5,
-        "shadowColor": "#0000ff",
-        "id": "layer_2"
-    },
-    {
-        "starsCount": 7,
-        "minRadius": 3,
-        "maxRadius": 5,
-        "speed": 2,
-        "color": "#666666",
-        "blur": 4,
-        "shadowColor": "#0000ff",
-        "id": "layer_3"
-    },
-    {
-        "starsCount": 8,
-        "minRadius": 5,
-        "maxRadius": 7,
-        "speed": 3,
-        "color": "#888888",
-        "blur": 3,
-        "shadowColor": "#0000ff",
-        "id": "layer_4"
-    },
-    {
-        "starsCount": 9,
-        "minRadius": 7,
-        "maxRadius": 9,
-        "speed": 4,
-        "color": "#8888aa",
-        "blur": 2,
-        "shadowColor": "#0000ff",
-        "id": "layer_5"
-    },
-    {
-        "starsCount": 10,
-        "minRadius": 9,
-        "maxRadius": 12,
-        "speed": 5,
-        "color": "#bbbbbb",
-        "blur": 2,
-        "shadowColor": "#0000ff",
-        "id": "layer_6"
-    },
+    // {
+    //     "starsCount": 5,
+    //     "minRadius": 0.5,
+    //     "maxRadius": 1,
+    //     "speed": 0.7,
+    //     "color": "#555555",
+    //     "blur": 5,
+    //     "shadowColor": "#0000ff",
+    //     "id": "layer_1"
+    // },
+    // {
+    //     "starsCount": 6,
+    //     "minRadius": 1,
+    //     "maxRadius": 3,
+    //     "speed": 1,
+    //     "color": "#555555",
+    //     "blur": 5,
+    //     "shadowColor": "#0000ff",
+    //     "id": "layer_2"
+    // },
+    // {
+    //     "starsCount": 7,
+    //     "minRadius": 3,
+    //     "maxRadius": 5,
+    //     "speed": 2,
+    //     "color": "#666666",
+    //     "blur": 4,
+    //     "shadowColor": "#0000ff",
+    //     "id": "layer_3"
+    // },
+    // {
+    //     "starsCount": 8,
+    //     "minRadius": 5,
+    //     "maxRadius": 7,
+    //     "speed": 3,
+    //     "color": "#888888",
+    //     "blur": 3,
+    //     "shadowColor": "#0000ff",
+    //     "id": "layer_4"
+    // },
+    // {
+    //     "starsCount": 9,
+    //     "minRadius": 7,
+    //     "maxRadius": 9,
+    //     "speed": 4,
+    //     "color": "#8888aa",
+    //     "blur": 2,
+    //     "shadowColor": "#0000ff",
+    //     "id": "layer_5"
+    // },
+    // {
+    //     "starsCount": 10,
+    //     "minRadius": 9,
+    //     "maxRadius": 12,
+    //     "speed": 5,
+    //     "color": "#bbbbbb",
+    //     "blur": 2,
+    //     "shadowColor": "#0000ff",
+    //     "id": "layer_6"
+    // },
 ]
 
 let middlePointX = w / 2
