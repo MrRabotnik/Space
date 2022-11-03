@@ -65,22 +65,15 @@ function fillLayersSetting() {
     layers.map(layer => {
         const layerDiv =
             `<div class="layerSetting" id="${layer.id}">
-                <div>
-                    <div>Stars count ${layer.starsCount}</div>
-                    <div>Stars speed ${layer.speed}  </div>
+                <div class="layerInfoContainer">
+                    <div class="layerSingleInfoContainer">Stars count <input type="number" value="${layer.starsCount}"></div>
+                    <div class="layerSingleInfoContainer">Stars speed <input type="number" value="${layer.speed}"></div>
+                    <div class="layerSingleInfoContainer">Min radius <input type="number" value="${layer.minRadius}"></div>
+                    <div class="layerSingleInfoContainer">Max radius <input type="number" value="${layer.maxRadius}"></div>
+                    <div class="layerSingleInfoContainer">Star color <input type="color" value="${layer.color}"></div>
+                    <div class="layerSingleInfoContainer">Blur <input type="number" value="${layer.blur}"></div>
+                    <div class="layerSingleInfoContainer">Shadow color <input type="color" value="${layer.shadowColor}"></div>
                 </div>
-                <div>
-                    <div>Min radius ${layer.minRadius}</div>
-                    <div>Max radius ${layer.maxRadius}</div>
-                </div>
-                <div>
-                    <div>Star color ${layer.color}</div>
-                </div>
-                <div>
-                    <div>Blur ${layer.blur}</div>
-                    <div>Shadow color ${layer.shadowColor}</div>
-                </div>
-            
                 <div class="removeLayer" aria-id="${layer.id}">
                     <img src="../images/remove.ico">
                 </div>

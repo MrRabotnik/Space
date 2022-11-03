@@ -15,9 +15,9 @@ let layers = [
         "minRadius": 80,
         "maxRadius": 100,
         "speed": 0.1,
-        "color": "rgb(150, 150, 200)",
+        "color": "#8888aa",
         "blur": 30,
-        "shadowColor": "yellow",
+        "shadowColor": "#ffff00",
         "id": "layer_0"
     },
     {
@@ -25,9 +25,9 @@ let layers = [
         "minRadius": 0.5,
         "maxRadius": 1,
         "speed": 0.7,
-        "color": "rgb(50, 50, 50)",
+        "color": "#555555",
         "blur": 5,
-        "shadowColor": "blue",
+        "shadowColor": "#0000ff",
         "id": "layer_1"
     },
     {
@@ -35,9 +35,9 @@ let layers = [
         "minRadius": 1,
         "maxRadius": 3,
         "speed": 1,
-        "color": "rgb(50, 50, 50)",
+        "color": "#555555",
         "blur": 5,
-        "shadowColor": "blue",
+        "shadowColor": "#0000ff",
         "id": "layer_2"
     },
     {
@@ -45,9 +45,9 @@ let layers = [
         "minRadius": 3,
         "maxRadius": 5,
         "speed": 2,
-        "color": "rgb(80, 80, 80)",
+        "color": "#666666",
         "blur": 4,
-        "shadowColor": "blue",
+        "shadowColor": "#0000ff",
         "id": "layer_3"
     },
     {
@@ -55,9 +55,9 @@ let layers = [
         "minRadius": 5,
         "maxRadius": 7,
         "speed": 3,
-        "color": "rgb(110, 110, 110)",
+        "color": "#888888",
         "blur": 3,
-        "shadowColor": "blue",
+        "shadowColor": "#0000ff",
         "id": "layer_4"
     },
     {
@@ -65,9 +65,9 @@ let layers = [
         "minRadius": 7,
         "maxRadius": 9,
         "speed": 4,
-        "color": "rgb(150, 150, 200)",
+        "color": "#8888aa",
         "blur": 2,
-        "shadowColor": "blue",
+        "shadowColor": "#0000ff",
         "id": "layer_5"
     },
     {
@@ -75,9 +75,9 @@ let layers = [
         "minRadius": 9,
         "maxRadius": 12,
         "speed": 5,
-        "color": "rgb(200, 200, 200)",
+        "color": "#bbbbbb",
         "blur": 2,
-        "shadowColor": "blue",
+        "shadowColor": "#0000ff",
         "id": "layer_6"
     },
 ]
