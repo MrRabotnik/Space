@@ -8,7 +8,7 @@ const addFrontLayerIcon = document.getElementById("addFrontLayerIcon")
 const closeLayerPopUpIcon = document.getElementById("closeLayerPopUpIcon")
 const outerPopUp = document.getElementById("outerPopUp")
 
-let layerId = 0
+let layerId = layers.length
 let frontOrBackLayer = ""
 
 function openSettingsPopUp() {
