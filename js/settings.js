@@ -59,7 +59,7 @@ function saveAddLayer() {
             "id": "layer_" + (layerId)
         })
     }
-    
+
     settingsPopUpContentContainer.innerHTML = "" // Empty the layer settings 
     fillLayersSetting() // Fill the layer settings 
     addEventListeners() // Adding event listeners to new list of layers in settings
@@ -87,8 +87,42 @@ function removeLayer(id) {
     drawSpace()
 }
 
+function moveLayerUp(id) {
+    for (let i = 0; i < layers.length; i++) {
+        if (layers[i + 1]?.id === id) {
+            let tmp = layers[i]
+            layers[i] = layers[i + 1]
+            layers[i + 1] = tmp
+            break
+        }
+    }
+
+    settingsPopUpContentContainer.innerHTML = "" // Empty the layer settings 
+    fillLayersSetting() // Fill the layer settings 
+    addEventListeners() // Adding event listeners to new list of layers in settings
+    createStarLayers()
+    drawSpace()
+}
+
+function moveLayerDown(id) {
+    for (let i = 0; i < layers.length; i++) {
+        if (layers[i].id === id) {
+            let tmp = layers[i]
+            layers[i] = layers[i + 1]
+            layers[i + 1] = tmp
+            break
+        }
+    }
+
+    settingsPopUpContentContainer.innerHTML = "" // Empty the layer settings 
+    fillLayersSetting() // Fill the layer settings 
+    addEventListeners() // Adding event listeners to new list of layers in settings
+    createStarLayers()
+    drawSpace()
+}
+
 function fillLayersSetting() {
-    layers.map(layer => {
+    layers.map((layer, index) => {
         const layerDiv =
             `<div class="layerSetting" id="${layer.id}">
                 <div class="layerInfoContainer">
@@ -100,10 +134,14 @@ function fillLayersSetting() {
                     <div class="layerSingleInfoContainer">Blur <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="blur" type="number" value="${layer.blur}"></div>
                     <div class="layerSingleInfoContainer">Shadow color <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="shadowColor" type="color" value="${layer.shadowColor}"></div>
                 </div>
-                <div class="removeLayer" aria-id="${layer.id}">
-                    <img src="../images/remove.ico">
-                </div>
-            </div>`;
+                <div class="layerToolsContainer">
+                    ${index > 0 ? '<div class="arrowUp hiddenTools" aria-id="' + layer.id + '"><img src="../images/arrow.png"></div > ' : ""}
+                    <div class="removeLayer hiddenTools" aria-id="${layer.id}">
+                        <img src="../images/remove.ico">
+                    </div>
+                    ${index < layers.length - 1 ? '<div class="arrowDown hiddenTools" aria-id="' + layer.id + '"><img src="../images/arrow.png"></div> ' : ""}
+                </div >
+            </div > `;
         settingsPopUpContentContainer.innerHTML += layerDiv
     })
 }
@@ -111,6 +149,8 @@ function fillLayersSetting() {
 function addEventListeners() {
     const layersIds = document.getElementsByClassName("removeLayer")
     const layerSingleInfo = document.getElementsByClassName("layerSingleInfoInput")
+    const arrowUp = document.getElementsByClassName("arrowUp")
+    const arrowDown = document.getElementsByClassName("arrowDown")
     for (let i = 0; i < layersIds.length; i++) {
         const layer = layersIds[i];
         layer.addEventListener('click', () => removeLayer(layer.getAttribute("aria-id")))
@@ -118,6 +158,14 @@ function addEventListeners() {
     for (let i = 0; i < layerSingleInfo.length; i++) {
         const layerInfo = layerSingleInfo[i];
         layerInfo.addEventListener('change', () => editLayerInfo(layerInfo.value, layerInfo.getAttribute("aria-property"), layerInfo.getAttribute("aria-id")))
+    }
+    for (let i = 0; i < arrowUp.length; i++) {
+        const arrow = arrowUp[i];
+        arrow.addEventListener('click', () => moveLayerUp(arrow.getAttribute("aria-id")))
+    }
+    for (let i = 0; i < arrowDown.length; i++) {
+        const arrow = arrowDown[i];
+        arrow.addEventListener('click', () => moveLayerDown(arrow.getAttribute("aria-id")))
     }
     layerId++
 }
@@ -127,7 +175,7 @@ addEventListeners()
 
 settingsIcon.addEventListener("click", openSettingsPopUp)
 closePopUp.addEventListener("click", closeSettingsPopUp)
-addBackLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrBackLayer = "back"})
-addFrontLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrBackLayer = "front"})
+addBackLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrBackLayer = "back" })
+addFrontLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrBackLayer = "front" })
 saveLayerBtn.addEventListener("click", () => { saveAddLayer(); closeAddLayerPopUp() })
 closeLayerPopUpIcon.addEventListener("click", closeAddLayerPopUp)

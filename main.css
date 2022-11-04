@@ -2,7 +2,7 @@ body{
     margin: 0;
     background-color: rgb(3, 1, 13);
     overflow: hidden;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* width */
@@ -34,14 +34,15 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(112, 235, 239);
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 0 5px white;
+    transition: 0.5s;
 }   
 
 #settings:hover{
-    background-color: rgb(52, 154, 157);
+    background-color: rgb(255, 255, 255);
 }
 
 #settings img{
@@ -127,8 +128,16 @@ body{
     box-sizing: border-box;
 }
 
-.removeLayer{
+.layerToolsContainer{
     width: 20%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hiddenTools{
     visibility: hidden;
     color: red;
     display: flex;
@@ -136,16 +145,20 @@ body{
     align-items: center;
 }
 
-.removeLayer img{
+.arrowUp{
+    transform: rotate(180deg);
+}
+
+.layerToolsContainer img{
     width: 30px;
     height: auto;
 }
 
 .layerSetting:hover{
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(238, 238, 238);
 }
 
-.layerSetting:hover .removeLayer{
+.layerSetting:hover .hiddenTools{
     visibility: visible;
 }
 
