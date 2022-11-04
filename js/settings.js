@@ -127,9 +127,9 @@ function fillLayersSetting() {
             `<div class="layerSetting" id="${layer.id}">
                 <div class="layerInfoContainer">
                     <div class="layerSingleInfoContainer">Stars count <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="starsCount" type="number" value="${layer.starsCount}"></div>
-                    <div class="layerSingleInfoContainer">Stars speed <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="minRadius" type="number" value="${layer.speed}"></div>
-                    <div class="layerSingleInfoContainer">Min radius <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="maxRadius" type="number" value="${layer.minRadius}"></div>
-                    <div class="layerSingleInfoContainer">Max radius <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="speed" type="number" value="${layer.maxRadius}"></div>
+                    <div class="layerSingleInfoContainer">Min radius <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="minRadius" type="number" value="${layer.speed}"></div>
+                    <div class="layerSingleInfoContainer">Max radius <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="maxRadius" type="number" value="${layer.minRadius}"></div>
+                    <div class="layerSingleInfoContainer">Stars speedMax radius <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="speed" type="number" value="${layer.maxRadius}"></div>
                     <div class="layerSingleInfoContainer">Star color <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="color" type="color" value="${layer.color}"></div>
                     <div class="layerSingleInfoContainer">Blur <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="blur" type="number" value="${layer.blur}"></div>
                     <div class="layerSingleInfoContainer">Shadow color <input class="layerSingleInfoInput" aria-id="${layer.id}" aria-property="shadowColor" type="color" value="${layer.shadowColor}"></div>
