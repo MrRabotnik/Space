@@ -81,6 +81,7 @@ body{
     border: solid black 1px;
     padding: 5px;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgb(37, 216, 79);
 }
 
 #addBackLayerIcon:hover, #addFrontLayerIcon:hover{
@@ -93,8 +94,21 @@ body{
     font-size: 30px;
 }
 
+.changeBGcolor{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  box-shadow: 0 2px 2px rgb(219, 214, 214);
+}
+
+.changeBGcolor input{
+  width: 100px;
+  margin-left: 55px;
+}
+
 #settingsPopUpContentContainer{
-    height: calc(100% - 50px);
+    height: calc(100% - 100px);
     overflow: auto;
 }
 

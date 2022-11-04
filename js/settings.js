@@ -7,6 +7,8 @@ const addBackLayerIcon = document.getElementById("addBackLayerIcon")
 const addFrontLayerIcon = document.getElementById("addFrontLayerIcon")
 const closeLayerPopUpIcon = document.getElementById("closeLayerPopUpIcon")
 const outerPopUp = document.getElementById("outerPopUp")
+const changeBGcolor = document.getElementById("changeBGcolor")
+const body = document.getElementById("body")
 
 let layerId = layers.length
 let frontOrBackLayer = ""
@@ -25,6 +27,10 @@ function openAddLayerPopUp() {
 
 function closeAddLayerPopUp() {
     outerPopUp.style.visibility = "hidden"
+}
+
+function changeBgColor(val){
+  body.style.backgroundColor = val
 }
 
 function saveAddLayer() {
@@ -179,3 +185,4 @@ addBackLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrB
 addFrontLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrBackLayer = "front" })
 saveLayerBtn.addEventListener("click", () => { saveAddLayer(); closeAddLayerPopUp() })
 closeLayerPopUpIcon.addEventListener("click", closeAddLayerPopUp)
+changeBGcolor.addEventListener("change", () => changeBgColor(changeBGcolor.value))
