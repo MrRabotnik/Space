@@ -3,11 +3,13 @@ const settingsPopUp = document.getElementById("settingsPopUp")
 const closePopUp = document.getElementById("closePopUpIcon")
 const settingsPopUpContentContainer = document.getElementById("settingsPopUpContentContainer")
 const saveLayerBtn = document.getElementById("saveLayerBtn")
-const addLayerBtn = document.getElementById("addLayerIcon")
+const addBackLayerIcon = document.getElementById("addBackLayerIcon")
+const addFrontLayerIcon = document.getElementById("addFrontLayerIcon")
 const closeLayerPopUpIcon = document.getElementById("closeLayerPopUpIcon")
 const outerPopUp = document.getElementById("outerPopUp")
 
-let layerId = 0
+let layerId = layers.length
+let frontOrBackLayer = ""
 
 function openSettingsPopUp() {
     settingsPopUp.style.visibility = "visible"
@@ -34,17 +36,30 @@ function saveAddLayer() {
     const starBlurSetting = document.getElementById("starBlurSetting")
     const starShadowColorSetting = document.getElementById("starShadowColorSetting")
 
-    layers.unshift({
-        "starsCount": starsCountSetting.value ? starsCountSetting.value : 1,
-        "minRadius": starMinRadiusSetting.value ? starMinRadiusSetting.value : 100,
-        "maxRadius": starMaxRadiusSetting.value ? starMaxRadiusSetting.value : 100,
-        "speed": starSpeedSetting.value ? starSpeedSetting.value : 0.1,
-        "color": starColorSetting.value ? starColorSetting.value : "#ffffff",
-        "blur": starBlurSetting.value ? starBlurSetting.value : 30,
-        "shadowColor": starShadowColorSetting.value ? starShadowColorSetting.value : "#000000",
-        "id": "layer_" + (layerId)
-    })
-
+    if (frontOrBackLayer === "back") {
+        layers.unshift({
+            "starsCount": starsCountSetting.value ? starsCountSetting.value : 1,
+            "minRadius": starMinRadiusSetting.value ? starMinRadiusSetting.value : 100,
+            "maxRadius": starMaxRadiusSetting.value ? starMaxRadiusSetting.value : 100,
+            "speed": starSpeedSetting.value ? starSpeedSetting.value : 0.1,
+            "color": starColorSetting.value ? starColorSetting.value : "#ffffff",
+            "blur": starBlurSetting.value ? starBlurSetting.value : 30,
+            "shadowColor": starShadowColorSetting.value ? starShadowColorSetting.value : "#000000",
+            "id": "layer_" + (layerId)
+        })
+    } else {
+        layers.push({
+            "starsCount": starsCountSetting.value ? starsCountSetting.value : 1,
+            "minRadius": starMinRadiusSetting.value ? starMinRadiusSetting.value : 100,
+            "maxRadius": starMaxRadiusSetting.value ? starMaxRadiusSetting.value : 100,
+            "speed": starSpeedSetting.value ? starSpeedSetting.value : 0.1,
+            "color": starColorSetting.value ? starColorSetting.value : "#ffffff",
+            "blur": starBlurSetting.value ? starBlurSetting.value : 30,
+            "shadowColor": starShadowColorSetting.value ? starShadowColorSetting.value : "#000000",
+            "id": "layer_" + (layerId)
+        })
+    }
+    
     settingsPopUpContentContainer.innerHTML = "" // Empty the layer settings 
     fillLayersSetting() // Fill the layer settings 
     addEventListeners() // Adding event listeners to new list of layers in settings
@@ -114,6 +129,7 @@ addEventListeners()
 
 settingsIcon.addEventListener("click", openSettingsPopUp)
 closePopUp.addEventListener("click", closeSettingsPopUp)
-addLayerBtn.addEventListener("click", openAddLayerPopUp)
+addBackLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrBackLayer = "back"})
+addFrontLayerIcon.addEventListener("click", () => { openAddLayerPopUp(); frontOrBackLayer = "front"})
 saveLayerBtn.addEventListener("click", () => { saveAddLayer(); closeAddLayerPopUp() })
 closeLayerPopUpIcon.addEventListener("click", closeAddLayerPopUp)

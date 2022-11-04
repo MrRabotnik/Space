@@ -72,7 +72,7 @@ body{
     padding: 10px 30px;
 }
 
-#addLayerIcon{
+#addBackLayerIcon, #addFrontLayerIcon{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +82,7 @@ body{
     cursor: pointer;
 }
 
-#addLayerIcon:hover{
+#addBackLayerIcon:hover, #addFrontLayerIcon:hover{
     background-color: green;
     color: white;
 }
