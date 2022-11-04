@@ -208,6 +208,11 @@ body{
     border-bottom: dotted black 1px;
 }
 
+.customizeDiv input{
+    width: 80px;
+    box-sizing: border-box;
+}
+
 #saveLayerContainer{
     display: flex;
     justify-content: center;
