@@ -8,7 +8,7 @@ const addFrontLayerIcon = document.getElementById("addFrontLayerIcon")
 const closeLayerPopUpIcon = document.getElementById("closeLayerPopUpIcon")
 const outerPopUp = document.getElementById("outerPopUp")
 
-let layerId = layers.length
+let layerId = 0
 let frontOrBackLayer = ""
 
 function openSettingsPopUp() {
@@ -68,13 +68,11 @@ function saveAddLayer() {
 }
 
 function editLayerInfo(val, property, id) {
-    console.log(val, property, id)
     layers = layers.map(layer => {
         if (layer.id === id) {
-            console.log(layer)
             layer[property] = val
-            return layer
         }
+        return layer
     })
     createStarLayers()
     drawSpace()
